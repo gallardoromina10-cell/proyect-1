@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día de la Madre</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .container {
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 400px;
+            height: 550px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateY(0deg); }
+            50% { transform: translateY(-20px) rotateY(5deg); }
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: rise 4s ease-in infinite;
+            opacity: 0;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 30%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 50%; animation-delay: 2s; }
+        .heart:nth-child(4) { left: 70%; animation-delay: 0.5s; }
+        .heart:nth-child(5) { left: 90%; animation-delay: 1.5s; }
+
+        @keyframes rise {
+            0% {
+                bottom: -20px;
+                opacity: 0;
+                transform: scale(0.5) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1) rotate(180deg);
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+                transform: scale(0.5) rotate(360deg);
+            }
+        }
+
+        .flower-decoration {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: bloom 2s ease-in-out infinite;
+        }
+
+        @keyframes bloom {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(10deg); }
+        }
+
+        h1 {
+            color: #c2185b;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(194, 24, 91, 0.3);
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 2px 2px 4px rgba(194, 24, 91, 0.3); }
+            50% { text-shadow: 2px 2px 20px rgba(194, 24, 91, 0.6); }
+        }
+
+        .message {
+            color: #555;
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.8;
+            font-style: italic;
+            padding: 20px;
+            background: rgba(194, 24, 91, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #c2185b;
+        }
+
+        .signature {
+            color: #c2185b;
+            font-size: 16px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .decorative-line {
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c2185b, transparent);
+            margin: 15px 0;
+            animation: expand 2s ease-in-out infinite;
+        }
+
+        @keyframes expand {
+            0%, 100% { width: 60%; }
+            50% { width: 80%; }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 20%; right: 20%; animation-delay: 0.3s; }
+        .sparkle:nth-child(3) { bottom: 30%; left: 10%; animation-delay: 0.6s; }
+        .sparkle:nth-child(4) { bottom: 15%; right: 15%; animation-delay: 0.9s; }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% { 
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-inner">
+                <div class="hearts">
+                    <div class="heart">💖</div>
+                    <div class="heart">💕</div>
+                    <div class="heart">💖</div>
+                    <div class="heart">💕</div>
+                    <div class="heart">💖</div>
+                </div>
+                
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                
+                <div class="flower-decoration">🌸</div>
+                
+                <h1>¡Feliz Día de la Madre!</h1>
+                
+                <div class="decorative-line"></div>
+                
+                <div class="message">
+                    "Madre: tu amor es el refugio donde mi alma encuentra paz, 
+                    la luz que guía mis pasos y el abrazo eterno que llevo en el corazón. 
+                    Gracias por ser mi hogar, mi fuerza y mi inspiración."
+                </div>
+                
+                <div class="decorative-line"></div>
+                
+                <div class="signature">Con todo mi amor ❤️</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
